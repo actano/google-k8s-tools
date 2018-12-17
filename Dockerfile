@@ -7,4 +7,6 @@ VOLUME ["/root/.kube"]
 VOLUME ["/root/.helm"]
 
 # install latest helm
-RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+RUN curl -L https://raw.githubusercontent.com/helm/helm/master/scripts/get -o helm_install.sh
+RUN chmod +x ./helm_install.sh
+RUN ./helm_install.sh --version v2.11.0
